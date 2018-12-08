@@ -48,20 +48,10 @@ void loop() {
       } else {
           digitalWrite(ledPin, LOW);
       }
-    
-  
+      
     webSocket.loop();
     server.handleClient();
-    if (Serial.available() > 0){
-      char c[] = {(char)Serial.read()};
 
-      //char Str4[ ] = "arduino";
-      webSocket.broadcastTXT(c, sizeof(c));
-      //webSocket.broadcastTXT(Str4);
-
-
-    }
-    //s.write("s");
     if (s.available()>0)
     {
       data=s.readString();
