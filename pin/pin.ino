@@ -5,7 +5,7 @@ const int led =2;
 String data;
 void setup(){
  Serial.begin(9600);
- s.begin(115200);
+ s.begin(9600);
  pinMode(led,OUTPUT);
  
  delay(2000);
