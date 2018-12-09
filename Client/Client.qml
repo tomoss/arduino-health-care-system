@@ -31,25 +31,21 @@ Rectangle {
 
         onTextMessageReceived: {
             active: true
-            states = message;
 
-            console.log(message);
-            mainW.setText(message);
-
-
+            console.log(message);  
+            mainPage.setTemp(message)
 
         }//end onTextMessageReceived
+//        onStatusChanged:
+//            if (socket.status === WebSocket.Error) {
+//                console.log("Error")
 
-        onStatusChanged:
-            if (socket.status === WebSocket.Error) {
-                console.log("Error")
+//            }  else if (socket.status === WebSocket.Closed) {
+//                console.log("Closed")
 
-            }  else if (socket.status === WebSocket.Closed) {
-                console.log("Closed")
-
-            }  else if (socket.status === WebSocket.Open) {
-                console.log("Open")
-            }
+//            }  else if (socket.status === WebSocket.Open) {
+//                console.log("Open")
+//            }
 
 
 
@@ -62,15 +58,37 @@ Rectangle {
 
 
         onTriggered: {
-            if(socket.status == WebSocket.Closed || socket.status == WebSocket.Error)
+
+            if(socket.status == WebSocket.Closed || socket.status == WebSocket.Error )
             {
                 socket.active = false;
                 socket.active = true;
-                console.log(socket.status)
 
-            }//end if
+
+            }
+            if (socket.status === WebSocket.Error) {
+                console.log("Error")
+
+            }  else if (socket.status === WebSocket.Closed) {
+                console.log("Closed")
+
+            }  else if (socket.status === WebSocket.Open) {
+                console.log("Open")
+            }  else if (socket.status === WebSocket.Connecting) {
+                console.log("Connecting")
+            }  else if (socket.status === WebSocket.Closing) {
+                console.log("Closing")
+            } else {
+                console.log("wtf")
+            }
+
         }//end onTriggered
+
+
+
     }//end Timer
+
+
 }//end Rectangle
 
 

@@ -6,5 +6,8 @@
         <file>Page2Form.qml</file>
         <file>images/wifiOFF.png</file>
         <file>images/wifiON.png</file>
+        <file>images/heartbeat.png</file>
+        <file>images/pulse.png</file>
+        <file>images/temp.png</file>
     </qresource>
 </RCC>

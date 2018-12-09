@@ -6,8 +6,14 @@ ApplicationWindow {
     id:mainWindow
     visible: true
     width: 640
-    height: 480
+    height: 500
     title: qsTr("Tabs")
+
+//    maximumHeight: height
+//    maximumWidth: width
+
+//    minimumHeight: height
+//    minimumWidth: width
 
     SwipeView {
         id: swipeView
