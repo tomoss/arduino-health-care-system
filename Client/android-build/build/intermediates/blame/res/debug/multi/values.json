@@ -1,0 +1,188 @@
+[
+    {
+        "outputFile": "D:\\OneDrive\\IOM\\Client\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 602,
+                    "endColumn": 12,
+                    "endOffset": 84257
+                },
+                "from": {
+                    "file": "D:\\OneDrive\\IOM\\Client\\android-build\\res\\values\\libs.xml",
+                    "position": {
+                        "startLine": 66,
+                        "startColumn": 4,
+                        "startOffset": 4532,
+                        "endLine": 666,
+                        "endColumn": 12,
+                        "endOffset": 88736
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 603,
+                    "startColumn": 4,
+                    "startOffset": 84262,
+                    "endLine": 641,
+                    "endColumn": 12,
+                    "endOffset": 88115
+                },
+                "from": {
+                    "file": "D:\\OneDrive\\IOM\\Client\\android-build\\res\\values\\libs.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 671,
+                        "endLine": 65,
+                        "endColumn": 12,
+                        "endOffset": 4526
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 642,
+                    "startColumn": 4,
+                    "startOffset": 88120,
+                    "endLine": 644,
+                    "endColumn": 12,
+                    "endOffset": 88169
+                },
+                "from": {
+                    "file": "D:\\OneDrive\\IOM\\Client\\android-build\\res\\values\\libs.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 300,
+                        "endLine": 11,
+                        "endColumn": 12,
+                        "endOffset": 351
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 645,
+                    "startColumn": 4,
+                    "startOffset": 88174,
+                    "endLine": 657,
+                    "endColumn": 13,
+                    "endOffset": 88475
+                },
+                "from": {
+                    "file": "D:\\OneDrive\\IOM\\Client\\android-build\\res\\values\\libs.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 5,
+                        "startOffset": 360,
+                        "endLine": 25,
+                        "endColumn": 13,
+                        "endOffset": 663
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 658,
+                    "startColumn": 4,
+                    "startOffset": 88480,
+                    "endLine": 660,
+                    "endColumn": 12,
+                    "endOffset": 88590
+                },
+                "from": {
+                    "file": "D:\\OneDrive\\IOM\\Client\\android-build\\res\\values\\libs.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 57,
+                        "endLine": 4,
+                        "endColumn": 12,
+                        "endOffset": 169
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 661,
+                    "startColumn": 4,
+                    "startOffset": 88595,
+                    "endColumn": 107,
+                    "endOffset": 88698
+                },
+                "from": {
+                    "file": "D:\\Qt\\Qt5.9.6\\5.9.6\\android_armv7\\src\\android\\java\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 324,
+                        "endColumn": 107,
+                        "endOffset": 427
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 662,
+                    "startColumn": 4,
+                    "startOffset": 88703,
+                    "endColumn": 121,
+                    "endOffset": 88820
+                },
+                "from": {
+                    "file": "D:\\Qt\\Qt5.9.6\\5.9.6\\android_armv7\\src\\android\\java\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 201,
+                        "endColumn": 121,
+                        "endOffset": 318
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 663,
+                    "startColumn": 4,
+                    "startOffset": 88825,
+                    "endColumn": 111,
+                    "endOffset": 88932
+                },
+                "from": {
+                    "file": "D:\\Qt\\Qt5.9.6\\5.9.6\\android_armv7\\src\\android\\java\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 88,
+                        "endColumn": 111,
+                        "endOffset": 195
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 664,
+                    "startColumn": 4,
+                    "startOffset": 88937,
+                    "endColumn": 84,
+                    "endOffset": 89017
+                },
+                "from": {
+                    "file": "D:\\Qt\\Qt5.9.6\\5.9.6\\android_armv7\\src\\android\\java\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 433,
+                        "endColumn": 84,
+                        "endOffset": 513
+                    }
+                }
+            }
+        ]
+    }
+]

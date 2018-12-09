@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\OneDrive\IOM\Client\android-build\libs\QtAndroidBearer-bundled.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.2"
+        sha1="069a50a4124e39fa187017eb7d376158f1b3cbee">
+        <dex dex="D:\OneDrive\IOM\Client\android-build\build\intermediates\pre-dexed\debug\QtAndroidBearer-bundled_06f45dcc0844d00f3e5234c0f0c2ab2e2c5032a4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OneDrive\IOM\Client\android-build\libs\QtAndroid-bundled.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="28.0.2"
+        sha1="cf40cecfc2283aca46497a23260221acba460278">
+        <dex dex="D:\OneDrive\IOM\Client\android-build\build\intermediates\pre-dexed\debug\QtAndroid-bundled_4b856df87c901cea5fbaa9d8f326b2512a6878fb.jar" />
+    </item>
+
+</items>
