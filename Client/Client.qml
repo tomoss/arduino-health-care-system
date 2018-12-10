@@ -40,7 +40,7 @@ Rectangle {
         }//end onTextMessageReceived
 //        onStatusChanged:
 //            if (socket.status === WebSocket.Error) {
-//                console.log("Error")
+//                console.log("Error")8768
 
 //            }  else if (socket.status === WebSocket.Closed) {
 //                console.log("Closed")
