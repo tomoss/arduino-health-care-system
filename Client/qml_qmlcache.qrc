@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/">
+        <file alias="images/wifiOFF.png">images/wifiOFF.png</file>
+        <file alias="images/wifiON.png">images/wifiON.png</file>
+        <file alias="images/heartbeat.png">images/heartbeat.png</file>
+        <file alias="images/pulse.png">images/pulse.png</file>
+        <file alias="images/temp.png">images/temp.png</file>
+    </qresource>
+</RCC>

@@ -8,7 +8,7 @@ Rectangle {
     visible: false
 
     property string states: ""
-    property string serverIP: "192.168.100.10"
+    property string serverIP: "192.168.43.76"
     property string serverPort: "81"
 
 //    function setServer(ip,port){
@@ -32,8 +32,10 @@ Rectangle {
         onTextMessageReceived: {
             active: true
 
-            console.log(message);  
-            mainPage.setTemp(message)
+            console.log(message);
+            var result = message.split(';');
+            mainPage.setTemp(result[1]);
+            mainPage.setPulse(result[0]);
 
         }//end onTextMessageReceived
 //        onStatusChanged:
