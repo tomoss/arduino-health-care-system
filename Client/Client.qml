@@ -109,6 +109,9 @@ Rectangle {
 //                console.log("wtf")
 //            }
 
+            mainPage.setTemp("25.2");
+            mainPage.setPulse("83");
+
         }//end onTriggered
 
 

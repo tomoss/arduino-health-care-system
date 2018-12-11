@@ -7,17 +7,9 @@ Page {
     width: 600
     height: 500
 
-
-
     /************************************************************************************************/
     /*************************************** PROPERTIES *********************************************/
     /************************************************************************************************/
-
-//    property string color1: "#011A27"
-//    property string color2: "#063852"
-//    property string color3: "#F0810F"
-//    property string color4: "#E6DF44"
-
 
     property string color1: "#0F7BC6"
     property string color2: "#222E50"
@@ -301,7 +293,7 @@ Page {
 
             Button{
                 id: responseButton
-                text: "SENT\nRESPONSE"
+                text: "SEND\nRESPONSE"
                 font.pixelSize: Qt.application.font.pixelSize * 1.3
                 font.bold: true
 
