@@ -9,10 +9,10 @@ SoftwareSerial s(D6,D5);
 String data;
 int ledPin = D7;
  
-//const char* ssid = "HUAWEI-yE9u";
-//const char* password = "2Arct44w";
-const char* ssid = "Nokia";
-const char* password = "qwerty1234";
+const char* ssid = "HUAWEI-yE9u";
+const char* password = "2Arct44w";
+//const char* ssid = "Nokia";
+//const char* password = "qwerty1234";
 
 WebSocketsServer webSocket = WebSocketsServer(81);
 //ESP8266WebServer server(80);

@@ -7,7 +7,7 @@ SoftwareSerial s(10,11); //pins for serial communication
 //  Variables
 const int PulsePin = 0; // PulseSensor  connected to ANALOG PIN 0
 const int TempPin = 1;  // LM35Sensor  connected to ANALOG PIN 1
-const int PulseLedPin  = 4;
+const int PulseLedPin  = 13;
 const int ButtonLedPin = 5;
 const int ButtonPin = 2;          
 boolean ButtonState = false;
@@ -17,7 +17,7 @@ int Threshold = 550;           // Determine which Signal to "count as a beat" an
 float vmed = 0;
 float ve = 0;
 int beats =0;
-int hearhRate=0; 
+int heartRate=0; 
 float temperatureC = 0;
                                
 PulseSensorPlayground pulseSensor;  // Creates an instance of the PulseSensorPlayground object called "pulseSensor"
@@ -34,7 +34,7 @@ void setup() {
   
 
   // Configure the PulseSensor object, by assigning our variables to it. 
-  pulseSensor.analogInput(PulseWire);   
+  pulseSensor.analogInput(PulsePin);   
   pulseSensor.blinkOnPulse(PulseLedPin);       //auto-magically blink Arduino's LED with heartbeat.
   pulseSensor.setThreshold(Threshold);   
 
@@ -58,9 +58,9 @@ void loop() {
  vmed = 0;
  ve=0;  
 
- buttonState = digitalRead(ButtonPin);
+ ButtonState = digitalRead(ButtonPin);
 
- if(buttonState == HIGH){
+ if(ButtonState == HIGH){
    digitalWrite(ButtonLedPin, HIGH);
  } else {
    digitalWrite(ButtonLedPin, LOW);
@@ -92,9 +92,10 @@ void loop() {
  
  heartRate = beats*4;
  Serial.println(heartRate); // print batai / minut
+ beats = 0;
 
  temperatureC = ve * 100 ;
- Serial.println("Pulse: "+String(hearthRate)+" Temp: "+String(temperatureC)+" Button: "+String(ButtonState));
+ Serial.println("Pulse: "+String(heartRate)+" Temp: "+String(temperatureC)+" Button: "+String(ButtonState));
 
  if(s.available()>0)
  {
