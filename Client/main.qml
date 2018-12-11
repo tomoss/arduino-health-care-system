@@ -5,15 +5,15 @@ import QtQuick.Controls 2.2
 ApplicationWindow {
     id:mainWindow
     visible: true
-    width: 640
-    height: 500
-    title: qsTr("Tabs")
+    width: 650
+    height: 850
+    title: qsTr("HEALTHCARE APP")
 
-//    maximumHeight: height
-//    maximumWidth: width
+    maximumHeight: height
+    maximumWidth: width
 
-//    minimumHeight: height
-//    minimumWidth: width
+    minimumHeight: height
+    minimumWidth: width
 
     SwipeView {
         id: swipeView

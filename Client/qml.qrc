@@ -8,6 +8,8 @@
         <file>images/wifiON.png</file>
         <file>images/heartbeat.png</file>
         <file>images/pulse.png</file>
-        <file>images/temp.png</file>
+        <file>images/bell.png</file>
+        <file>images/thermometer.png</file>
+        <file>images/cardiogram.png</file>
     </qresource>
 </RCC>

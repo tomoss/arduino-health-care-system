@@ -13,11 +13,17 @@ Page {
     /*************************************** PROPERTIES *********************************************/
     /************************************************************************************************/
 
-    property string color1: "#011A27"
-    property string color2: "#063852"
-    property string color3: "#F0810F"
-    property string color4: "#E6DF44"
+//    property string color1: "#011A27"
+//    property string color2: "#063852"
+//    property string color3: "#F0810F"
+//    property string color4: "#E6DF44"
 
+
+    property string color1: "#0F7BC6"
+    property string color2: "#222E50"
+    property string color3: "#0F7BC6"
+    property string color4: "#ffcc33"
+    property string color5: "#ffb347"
 
     property bool   conCheck: false //checks the connection to the server
 
@@ -42,6 +48,15 @@ Page {
         pulse_text.text = pulse;
     }
 
+    function setMessage(message){
+         header2_text.text = message;
+    }
+
+    function setAlert(message){
+        bell_image.visible = true;
+        message_text.text = message;
+    }
+
 
     /************************************************************************************************/
     /*************************************** DESIGN *************************************************/
@@ -52,7 +67,12 @@ Page {
 
         width: page.width
         height: page.height
-        color: color2
+        //color: color2
+
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: color4 }
+            GradientStop { position: 1.0; color: color5 }
+        }//end gradient fresh turboscent
 
 
 
@@ -62,13 +82,13 @@ Page {
             width: background_rect.width
             height: background_rect.height * 0.125
             anchors.top: background_rect.top
-            color:color2
+            color: "transparent"
 
                 Text { //top screen Text
                     id: text_header1
 
                     text: qsTr("HEALTHCARE APP")
-                    color: "white"
+                    color: color2
 
                     font.pixelSize: Qt.application.font.pixelSize * 1.7
                     font.bold: true
@@ -86,7 +106,7 @@ Page {
             width: background_rect.width
             height: background_rect.height * 0.375
             anchors.top: rect_header1_background.bottom
-            color:color2
+            color:"transparent"
 
             Row{
                 id: body1_row
@@ -97,7 +117,7 @@ Page {
 
                 Rectangle{
                     id:rect_temp
-                    color:color1
+                    color:color2
                     radius: 10
                     width: rect_body1_background.width * 0.40
                     height: rect_body1_background.height * 0.90
@@ -105,7 +125,7 @@ Page {
                     Image { //WiFi Image
                         id: temp_image
 
-                        source: "qrc:/images/temp.png"
+                        source: "qrc:/images/thermometer.png"
                         smooth: true
 
                         height: rect_temp.width < rect_temp.height ? rect_temp.width * 0.50 : rect_temp.height * 0.50
@@ -133,7 +153,7 @@ Page {
 
                 Rectangle{
                     id:rect_pulse
-                    color:color1
+                    color:color2
                     radius: 10
                     width: rect_body1_background.width * 0.40
                     height: rect_body1_background.height * 0.90
@@ -141,7 +161,7 @@ Page {
                     Image { //WiFi Image
                         id: pulse_image
 
-                        source: "qrc:/images/pulse.png"
+                        source: "qrc:/images/cardiogram.png"
                         smooth: true
 
                         height: rect_pulse.width < rect_pulse.height ? rect_pulse.width * 0.50 : rect_pulse.height * 0.50
@@ -179,11 +199,11 @@ Page {
             width: background_rect.width
             height: background_rect.height * 0.125
             anchors.top: rect_body1_background.bottom
-            color: color2
+            color: "transparent"
 
             Rectangle{
                 id: header2_rect
-                color: color3
+                color: color2
                 radius: 5
                 width:  parent.width   * 0.90
                 height: parent.height  * 0.90
@@ -193,9 +213,9 @@ Page {
 
                 Text {
                     id: header2_text
-                    color:color1
+                    color:color4
                     font.bold: true
-                    text: qsTr("Temperature and pulse are normal.")
+                    text: qsTr("No data.")
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     fontSizeMode: Text.HorizontalFit
@@ -216,7 +236,115 @@ Page {
             width: background_rect.width
             height: background_rect.height * 0.375
             anchors.top: rect_header2_background.bottom
-            color: color4
+            color: "transparent"
+
+            Rectangle{
+                id:left_rect
+                width: parent.width * 0.05
+                height: parent.height * 0.90
+                color: "transparent"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+            }
+
+            Rectangle{
+                id:messageRect
+                width: parent.width/2
+                height: parent.height * 0.90
+                color: color1
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: left_rect.right
+                radius: 10
+                border.color: color2
+                border.width: 3
+
+                Image { //WiFi Image
+                    id: bell_image
+
+                    source: "qrc:/images/bell.png"
+                    smooth: true
+
+                    visible: false
+
+                    height: parent.height/3
+                    width: parent.height/3
+
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: 10
+
+                    sourceSize.width: 200
+                    sourceSize.height: 200
+                }//end header1_image
+
+                Text{
+                    id: message_text
+                    color:color4
+                    font.bold: true
+                    text: qsTr("NO ALERT.")
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    fontSizeMode: Text.HorizontalFit
+                    font.pixelSize: Qt.application.font.pixelSize * 1.4
+                }
+
+            }
+
+            Rectangle{
+                id:center_rect
+                width: parent.width * 0.05
+                height: parent.height * 0.90
+                color: "transparent"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: messageRect.right
+            }
+
+            Button{
+                id: responseButton
+                text: "SENT\nRESPONSE"
+                font.pixelSize: Qt.application.font.pixelSize * 1.3
+                font.bold: true
+
+                contentItem: Text {
+                    text: responseButton.text
+                    font: responseButton.font
+                    opacity: enabled ? 1.0 : 0.3
+                    color: responseButton.down ? color2 : color4
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    elide: Text.ElideRight
+                }
+
+                onClicked: {
+                    message_text.text = "RESPONSE SENT !"
+                    bell_image.visible = true;
+                }
+
+
+
+                width: parent.width * 0.35 < parent.height * 0.90 ? parent.width * 0.35 : parent.height * 0.90
+                height: parent.width * 0.35 < parent.height * 0.90 ? parent.width * 0.35 : parent.height * 0.90
+                background: Rectangle{
+                    color: color3
+                    border.color: color2
+                    border.width: 3
+                    radius: width/2
+
+                }
+                anchors.left: center_rect.right
+                anchors.verticalCenter: parent.verticalCenter
+
+            }
+
+            Rectangle{
+                id:right_rect
+                width: parent.width * 0.05
+                height: parent.height * 0.90
+                color: "transparent"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.left: responseButton.right
+            }
 
 
 
