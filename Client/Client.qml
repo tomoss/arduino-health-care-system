@@ -8,7 +8,7 @@ Rectangle {
     visible: false
 
     property string states: ""
-    property string serverIP: "192.168.43.76"
+    property string serverIP: "192.168.100.10"
     property string serverPort: "81"
 
     function setServer(ip,port){
@@ -53,7 +53,7 @@ Rectangle {
                 mainPage.setMessage("Temperature and pulse are high !")
             }
 
-            if(result[2] === true){
+            if(result[2] === "1"){
                 mainPage.setAlert("ALERT !!");
             }
 
@@ -109,8 +109,7 @@ Rectangle {
 //                console.log("wtf")
 //            }
 
-            mainPage.setTemp("25.2");
-            mainPage.setPulse("83");
+
 
         }//end onTriggered
 
