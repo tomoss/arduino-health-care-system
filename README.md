@@ -1,13 +1,13 @@
-####Arduino Healthcare System
+#### Arduino Healthcare System
 
-####Tools needed:
+#### Tools needed:
 
 * Arduino IDE
 * Qt
 
 ####Libraries needed:
-*PulseSensor Playground Library
-*ESP8266 Library
+* PulseSensor Playground Library
+* ESP8266 Library
 
 
 ####Hardware components:
