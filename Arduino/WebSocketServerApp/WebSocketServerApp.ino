@@ -68,42 +68,43 @@ void loop() {
 
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length){
    Serial.printf("[%u] get Message: %s\r\n", num, payload);
-   switch(type) {
-        case WStype_DISCONNECTED: 
-            Serial.println("client disconnected");     
-            break;
-        case WStype_CONNECTED: 
-            {
-              IPAddress ip = webSocket.remoteIP(num);
-              Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\r\n", num, ip[0], ip[1], ip[2], ip[3], payload);    
-            }
-            break;
-        case WStype_TEXT:
-            {
-              for(int i = 0; i < length; i++) {
-              Serial.print((char) payload[i]);
-        
-              }
-              s.print(String((char *)payload));
-              Serial.println();    
-           }
-         case WStype_BIN:
-            {
-              hexdump(payload, length);
-            }
-            // echo data back to browser
-            webSocket.sendBIN(num, payload, length);
-            Serial.printf("wtf");
-            break;
-   }
+//   switch(type) {
+//        case WStype_DISCONNECTED: 
+//            Serial.println("client disconnected");     
+//            break;
+//        case WStype_CONNECTED: 
+//            {
+//              IPAddress ip = webSocket.remoteIP(num);
+//              Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\r\n", num, ip[0], ip[1], ip[2], ip[3], payload);    
+//            }
+//            break;
+//        case WStype_TEXT:
+//            {
+//              for(int i = 0; i < length; i++) {
+//              Serial.print((char) payload[i]);
+//        
+//              }
+//              s.print(String((char *)payload));
+//              Serial.println();    
+//           }
+//         case WStype_BIN:
+//            {
+//              hexdump(payload, length);
+//            }
+//            // echo data back to browser
+//            webSocket.sendBIN(num, payload, length);
+//            Serial.printf("wtf");
+//            break;
+//   }
 
   
-//   if (type == WStype_TEXT){
-//    for(int i = 0; i < length; i++) {
-//      Serial.print((char) payload[i]);
-//        
-//    }
-//    s.print(String((char *)payload));
-//    Serial.println();     
-//   }
+   if (type == WStype_TEXT){
+    Serial.printf("[%u] get Message: %s\r\n", num, payload);
+    for(int i = 0; i < length; i++) {
+      Serial.print((char) payload[i]);
+        
+    }
+    s.print(String((char *)payload));
+    Serial.println();     
+   }
 }
