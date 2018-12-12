@@ -15,12 +15,16 @@ const char* password = "2Arct44w";
 //const char* password = "qwerty1234";
 
 WebSocketsServer webSocket = WebSocketsServer(81);
-//ESP8266WebServer server(80);
+ESP8266WebServer server(80);
 
 void setup() {
+
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+ 
   Serial.begin(9600);
   s.begin(9600);
-  WiFi.setAutoReconnect(true);
+  //WiFi.setAutoReconnect(true);
   WiFi.begin(ssid, password);
   Serial.println("");
 
@@ -35,13 +39,13 @@ void setup() {
     Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
       
-    //server.begin();
+    server.begin();
     
     
     webSocket.begin();
     webSocket.onEvent(webSocketEvent);
     
-    pinMode(ledPin, OUTPUT);    
+    Serial.println("Web server started!");    
 }
 
 void loop() {
@@ -53,7 +57,7 @@ void loop() {
       }
       
     webSocket.loop();
-    //server.handleClient();
+    server.handleClient();
 
     if (s.available()>0)
     {
@@ -67,44 +71,15 @@ void loop() {
 }
 
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length){
-   Serial.printf("[%u] get Message: %s\r\n", num, payload);
-//   switch(type) {
-//        case WStype_DISCONNECTED: 
-//            Serial.println("client disconnected");     
-//            break;
-//        case WStype_CONNECTED: 
-//            {
-//              IPAddress ip = webSocket.remoteIP(num);
-//              Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\r\n", num, ip[0], ip[1], ip[2], ip[3], payload);    
-//            }
-//            break;
-//        case WStype_TEXT:
-//            {
-//              for(int i = 0; i < length; i++) {
-//              Serial.print((char) payload[i]);
-//        
-//              }
-//              s.print(String((char *)payload));
-//              Serial.println();    
-//           }
-//         case WStype_BIN:
-//            {
-//              hexdump(payload, length);
-//            }
-//            // echo data back to browser
-//            webSocket.sendBIN(num, payload, length);
-//            Serial.printf("wtf");
-//            break;
-//   }
+  if (type == WStype_TEXT){
+   for(int i = 0; i < length; i++) Serial.print((char) payload[i]);
+   Serial.println();
+   s.print(String((char *)payload));
+  }
 
-  
-   if (type == WStype_TEXT){
-    Serial.printf("[%u] get Message: %s\r\n", num, payload);
-    for(int i = 0; i < length; i++) {
-      Serial.print((char) payload[i]);
-        
-    }
-    s.print(String((char *)payload));
-    Serial.println();     
-   }
+  if(type == WStype_CONNECTED)
+            {
+              IPAddress ip = webSocket.remoteIP(num);
+              Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\r\n", num, ip[0], ip[1], ip[2], ip[3], payload);    
+            }
 }
