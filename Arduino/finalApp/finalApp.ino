@@ -8,8 +8,9 @@ SoftwareSerial s(10,11); //pins for serial communication
 const int PulsePin = 0; // PulseSensor  connected to ANALOG PIN 0
 const int TempPin = 1;  // LM35Sensor  connected to ANALOG PIN 1
 const int PulseLedPin  = 13;
-const int ButtonLedPin = 5;
-const int ButtonPin = 2;          
+const int ButtonLedPin = 3;
+const int ButtonPin = 2;    
+const int ResponseLedPin = 7;      
 boolean ButtonState = false;
 int Threshold = 550;           // Determine which Signal to "count as a beat" and which to ignore.
                                // Use the "Gettting Started Project" to fine-tune Threshold Value beyond default setting.
@@ -19,6 +20,7 @@ float ve = 0;
 int beats =0;
 int heartRate=0; 
 float temperatureC = 0;
+String data;
                                
 PulseSensorPlayground pulseSensor;  // Creates an instance of the PulseSensorPlayground object called "pulseSensor"
 
@@ -30,6 +32,7 @@ void setup() {
 
   pinMode(PulseLedPin,OUTPUT);
   pinMode(ButtonLedPin,OUTPUT);
+  pinMode(ResponseLedPin,OUTPUT);
   pinMode(ButtonPin,INPUT);
   
 
@@ -62,6 +65,7 @@ void loop() {
 
  if(ButtonState == HIGH){
    digitalWrite(ButtonLedPin, HIGH);
+   digitalWrite(ResponseLedPin, LOW);
  } else {
    digitalWrite(ButtonLedPin, LOW);
  }
@@ -94,14 +98,27 @@ void loop() {
  Serial.println(heartRate); // print batai / minut
  beats = 0;
 
- temperatureC = ve * 100 ;
+ temperatureC = ve * 100.0 ;
  Serial.println("Pulse: "+String(heartRate)+" Temp: "+String(temperatureC)+" Button: "+String(ButtonState));
 
- if(s.available()>0)
- {
+// if(s.available()>0)
+// {
       s.print(String(heartRate)+";"+String(temperatureC)+";"+ButtonState);
       ButtonState = false;
+//      
+// }
+//  else
+// {
+//  Serial.println("s not available");
+// }
+ if(s.available()>0)
+ {
+    data = s.readString();
+    Serial.println("mesaj: "+data);
+//    if(data == "123"){
+      digitalWrite(ResponseLedPin, HIGH);
       
+//    }
  }
   delay(20); 
         

@@ -310,6 +310,7 @@ Page {
                 onClicked: {
                     message_text.text = "RESPONSE SENT !"
                     bell_image.visible = true;
+                    client.sendMessage("123");
                 }
 
 
