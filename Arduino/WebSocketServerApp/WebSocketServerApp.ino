@@ -6,7 +6,7 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial s(D6,D5);
-String data;
+String data,data2;
 int ledPin = D7;
  
 const char* ssid = "HUAWEI-yE9u";
@@ -72,9 +72,12 @@ void loop() {
 
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length){
   if (type == WStype_TEXT){
-   for(int i = 0; i < length; i++) Serial.print((char) payload[i]);
-   Serial.println();
-   s.print(String((char *)payload));
+//   for(int i = 0; i < length; i++) 
+//   Serial.print((char) payload[i]);
+   
+   data2 = String((char *)payload); 
+   Serial.println(data2);
+   s.print(data2);
   }
 
   if(type == WStype_CONNECTED)
