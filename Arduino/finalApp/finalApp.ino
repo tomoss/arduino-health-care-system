@@ -101,24 +101,16 @@ void loop() {
  temperatureC = ve * 100.0 ;
  Serial.println("Pulse: "+String(heartRate)+" Temp: "+String(temperatureC)+" Button: "+String(ButtonState));
 
-// if(s.available()>0)
-// {
-      s.print(String(heartRate)+";"+String(temperatureC)+";"+ButtonState);
-      ButtonState = false;
-//      
-// }
-//  else
-// {
-//  Serial.println("s not available");
-// }
+
+  s.print(String(heartRate)+";"+String(temperatureC)+";"+ButtonState);
+  ButtonState = false;
+
  if(s.available()>0)
  {
     data = s.readString();
-    Serial.println("mesaj: "+data);
-//    if(data == "123"){
-      digitalWrite(ResponseLedPin, HIGH);
+    Serial.println(data);
+    digitalWrite(ResponseLedPin, HIGH);
       
-//    }
  }
   delay(20); 
         
