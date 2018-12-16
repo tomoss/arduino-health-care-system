@@ -5,15 +5,15 @@ import QtQuick.Controls 2.2
 ApplicationWindow {
     id:mainWindow
     visible: true
-    width: 650
-    height: 850
+    width: 550
+    height: 550 * 16/9
     title: qsTr("HEALTHCARE APP")
 
-    maximumHeight: height
-    maximumWidth: width
+//    maximumHeight: height
+//    maximumWidth: width
 
-    minimumHeight: height
-    minimumWidth: width
+//    minimumHeight: height
+//    minimumWidth: width
 
     SwipeView {
         id: swipeView
@@ -48,7 +48,7 @@ ApplicationWindow {
 
             text: qsTr("MONITOR")
             onClicked: {
-                //client.setServer(settings.front_ip,settings.front_port)
+                client.setServer(settings.serverIP,settings.serverPORT)
             }//end onClicked
         }//end TabButton1
 
@@ -56,9 +56,6 @@ ApplicationWindow {
             id: tabButton2
 
             text:  qsTr("SETTINGS")
-            onClicked: {
-                //client.setServer(settings.rear_ip,settings.rear_port)
-            }//end onClicked
         }//endTabButton2
     }//end TabBar
 

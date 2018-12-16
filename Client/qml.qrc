@@ -4,12 +4,12 @@
         <file>Client.qml</file>
         <file>Page1Form.qml</file>
         <file>Page2Form.qml</file>
-        <file>images/wifiOFF.png</file>
-        <file>images/wifiON.png</file>
-        <file>images/heartbeat.png</file>
-        <file>images/pulse.png</file>
         <file>images/bell.png</file>
         <file>images/thermometer.png</file>
         <file>images/cardiogram.png</file>
+        <file>images/wifi.png</file>
+        <file>images/wifi-off.png</file>
+        <file>images/success.png</file>
+        <file>images/warning.png</file>
     </qresource>
 </RCC>

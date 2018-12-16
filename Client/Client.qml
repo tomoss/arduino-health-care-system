@@ -7,13 +7,12 @@ Rectangle {
     height: 360
     visible: false
 
-    property string states: ""
     property string serverIP: "192.168.100.10"
-    property string serverPort: "81"
+    property string serverPORT: "81"
 
     function setServer(ip,port){
         serverIP = ip;
-        serverPort = port;
+        serverPORT = port;
     }//function for changing the client's URL
 
 
@@ -27,7 +26,7 @@ Rectangle {
 
     WebSocket {
         id: socket
-        url: "ws://" + serverIP + ":" + serverPort
+        url: "ws://" + serverIP + ":" + serverPORT
 
         onTextMessageReceived: {
             active: true
@@ -35,26 +34,17 @@ Rectangle {
             console.log("message received: "+message);
 
             var result = message.split(';');
-            var pulse = parseFloat(result[0]);
-            var temp = parseFloat(result[1]);
+            var pulse = result[0];
+            var temp = result[1];
+            var alert = result[2];
 
-            mainPage.setTemp(result[1]);
-            mainPage.setPulse(result[0]);
+            mainPage.setTemp(temp);
+            mainPage.setPulse(pulse);
+            mainPage.setInfo(temp,pulse)
 
-            if(temp < 37.2 && pulse <  100){
-                mainPage.setMessage("Temperature and pulse are normal.")
-            }
-            else if(temp >= 37.2 && pulse < 100){
-                mainPage.setMessage("Temperature is high !")
-            }
-            else if(temp < 37.2 && pulse > 100){
-                mainPage.setMessage("Heart rate is high !")
-            } else{
-                mainPage.setMessage("Temperature and pulse are high !")
-            }
 
-            if(result[2] === "1"){
-                mainPage.setAlert("ALERT !!");
+            if(alert === "1"){
+                mainPage.setAlert();
             }
 
 
@@ -63,14 +53,19 @@ Rectangle {
         onStatusChanged:
             if (socket.status === WebSocket.Error) {
                 console.log("Error")
+                mainPage.conStatus(false);
             }  else if (socket.status === WebSocket.Closed) {
                 console.log("Closed")
+                 mainPage.conStatus(false);
             }  else if (socket.status === WebSocket.Open) {
                 console.log("Open")
+                mainPage.conStatus(true);
             }  else if (socket.status === WebSocket.Connecting) {
                 console.log("Connecting...")
+                 mainPage.conStatus(false);
             }  else if (socket.status === WebSocket.Closing) {
                 console.log("Closing")
+                 mainPage.conStatus(false);
             }
 
 
@@ -90,26 +85,7 @@ Rectangle {
                 socket.active = false;
                 socket.active = true;
                 console.log("Reconnecting...")
-
-
             }
-//            if (socket.status === WebSocket.Error) {
-//                console.log("Error")
-
-//            }  else if (socket.status === WebSocket.Closed) {
-//                console.log("Closed")
-
-//            }  else if (socket.status === WebSocket.Open) {
-//                console.log("Open")
-//            }  else if (socket.status === WebSocket.Connecting) {
-//                console.log("Connecting")
-//            }  else if (socket.status === WebSocket.Closing) {
-//                console.log("Closing")
-//            } else {
-//                console.log("wtf")
-//            }
-
-
 
         }//end onTriggered
 
